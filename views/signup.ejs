@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/mycss/form.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/myjs/form.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body style="background-color:#e7e7e7">
+    <div class="container">
+        <form class="form">
+            <input type="text" class="form-control" id="email" placeholder="Email"><br>
+        <input type="text" class="form-control" id="username" placeholder="Username"><br>
+        <input type="text" class="form-control" id="password" placeholder="Password"><br>
+        <select  id="gender" class="form-control">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="gay">Gay</option>
+            <option value="lesbian">Lesbian</option>
+            <option value="transgender">Trans gender</option>
+            <option value="others">Others</option>
+        </select><br>
+        <select id="type" class="form-control">
+            <option value="student">Student</option>
+            <option value="expert">Expert</option>
+        </select><br>
+        <div class="btn btn-block" id="submit">Sign up</div>
+        </form>
+    </div>
+</body>
+</html>

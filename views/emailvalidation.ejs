@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/mycss/form.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/myjs/form.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body style="background-color:#e7e7e7">
+    <div class="container" >
+        <div class="jumbotron" style="background-color:white;margin:10% 30% 10% 30%">
+            <p style="color:green">A six digit passcode has been sent to <b id="email"><%= JSON.parse(x).email %></b></p>
+            <input type="text" id="passcode" placeholder="6 digit passcode" class="form-control"><br>
+            <label id="error" style="color:red;font-size:15px">Invalid passcode</label>
+            <div class="btn btn-block" id="btn">Submit</div>
+            <a href="/emailvalidation?email='akkakkaka'">click here</a>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+                var data={
+                    email:document.getElementById("email").innerHTML,
+                    passcode:document.getElementById("passcode").value
+                };
+                $.post("/emailvalidation",data,(data,status)=>{
+                    if(data=="/success"){
+                        //homepage
+                        window.location.href="/home";
+                    }else{
+                        document.getElementById("error").innerHTML = "Invalid passcode";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
