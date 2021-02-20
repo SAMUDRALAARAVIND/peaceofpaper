@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login </title>
+    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/mycss/form.css">
+    <script src="/jquery.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $("#login").on("click",()=>{
+                var formData={
+                    username:document.getElementById("username").value,
+                    password:document.getElementById("password").value
+                }
+                $.post("/login",formData,(data,status)=>{
+                    if(data == "false"){
+                        document.getElementById("ulabel").innerHTML = "Invalid credentials";
+                    }                    
+                    else
+                       window.location.href=data;
+                });
+            });
+        });
+    </script>
+</head>
+<body style="background-color: #e7e7e7;">
+    <div class="container">
+        <form class="form">
+        <label style="font-size: 15px;color:red" id="ulabel"></label><br>
+        <input type="text" class="form-control" id="username" placeholder="Username"><br>
+        <input type="text" class="form-control" id="password" placeholder="Password"><br>
+        <div class="btn btn-block" id="login">Log in</div>
+        </form>
+    </div>
+</body>
+</html>
