@@ -104,6 +104,6 @@ app.post("/login",(req,resp)=>{
 
 
 function test() {
-    
+    console.log("Hello test") ;
 }
 
